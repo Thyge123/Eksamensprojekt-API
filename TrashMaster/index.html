@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Trashmaster</title>
+</head>
+<body>
+    <div id="app">
+        
+        <div class="container-fluid">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>zipCode</th>
+                        <th>isFull</th>
+                        <th>Estimate</th>
+                        <th>lastEmptied</th>
+                    </tr>
+                </thead>
+                <tr v-for="trashcan in allTrash">
+                    <td>{{trashcan.id}}</td>
+                    <td>{{trashcan.city}}</td>
+                    <td>{{trashcan.address}}</td>
+                    <td>{{trashcan.zipCode}}</td>
+                    <td>{{trashcan.isFull}}</td>
+                    <td>{{trashcan.Estimate}}</td>
+                    <td>{{trashcan.lastEmptied}}</td>
+                </tr>
+            </table>
+        </div>
+        <input id="userName" v-model="name" placeholder="userName Here">
+        <button id="butt" v-on:click="welcomeMSG(name)" class="btn btn-primary">What is your User Name?</button>
+        <div id="output">{{msg}}</div>
+        <div id="newTrash">
+            <input id="address" v-model="addData.address" placeholder="Write the new address here">
+            <button id="buttonNew" v-on:click="addTrash()" class="btn btn-primary">New adress needed, {{name}}?</button>
+        </div>
+        <div id="remover">
+            <h2>Remove a TrashCan</h2>
+            <input id="remove" v-model="idToDelete" placeholder="put id" type="number">
+            <button  id="buttonOld" v-on:click="removeTrash(idToDelete)" class="btn btn-primary">Remove TrashCan</button>
+            <div>{{msg}}</div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>

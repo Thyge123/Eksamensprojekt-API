@@ -1,0 +1,10 @@
+body { 
+    font-family: Arial, Helvetica, Sans-Serif; 
+    background-image:url(../images/Roskilde.png);
+    background-size:cover;
+    background-repeat:no-repeat,repeat;
+ }
+#conf{
+    margin-left: 25%;
+    margin-top: 35%;
+}
