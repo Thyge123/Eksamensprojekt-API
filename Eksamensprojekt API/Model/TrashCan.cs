@@ -2,13 +2,13 @@
 {
     public class TrashCan
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
-        public int ZipCode { get; set; }
-        public bool isFull { get; set; }
-        public int Estimate { get; set; }
-        public DateTime lastEmptied { get; set; }
+        public int? ZipCode { get; set; }
+        public bool? isFull { get; set; }
+        public int? Estimate { get; set; }
+        public DateTime? lastEmptied { get; set; }
 
         public TrashCan()
         {
