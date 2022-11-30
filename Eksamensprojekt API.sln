@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eksamensprojekt API", "Eksamensprojekt API\Eksamensprojekt API.csproj", "{5D079C1F-8CC6-41D2-BE9F-822AD9F9CC05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eksamensprojekt API", "Eksamensprojekt API\Eksamensprojekt API.csproj", "{5D079C1F-8CC6-41D2-BE9F-822AD9F9CC05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eksamensprojekt APITests", "Eksamensprojekt APITests\Eksamensprojekt APITests.csproj", "{04327E45-7E73-4163-8E1B-C9FC687D5205}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5D079C1F-8CC6-41D2-BE9F-822AD9F9CC05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D079C1F-8CC6-41D2-BE9F-822AD9F9CC05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D079C1F-8CC6-41D2-BE9F-822AD9F9CC05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04327E45-7E73-4163-8E1B-C9FC687D5205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04327E45-7E73-4163-8E1B-C9FC687D5205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04327E45-7E73-4163-8E1B-C9FC687D5205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04327E45-7E73-4163-8E1B-C9FC687D5205}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
