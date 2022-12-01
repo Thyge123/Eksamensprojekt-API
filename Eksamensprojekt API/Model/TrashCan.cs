@@ -31,7 +31,7 @@
             if (Id == null) throw new ArgumentNullException("Id can't be null or empty");
             Console.WriteLine(2);
             if (Id <= 0) throw new ArgumentOutOfRangeException("User must have an Id");
-            Console.WriteLine("Intgernal id " + Id);
+            Console.WriteLine("Internal id " + Id);
         }
 
         public void ValidateCity()
