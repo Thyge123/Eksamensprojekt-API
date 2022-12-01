@@ -8,7 +8,7 @@ namespace Eksamensprojekt_API.Manager
 
         private static readonly List<User> Users = new List<User>
         {
-            new User {Id = nextId++, Name = "Bo", phoneNumber = "12345678", UserName = "Bo", Password = "BoErSej", TrashCanId = 1},
+            new User {Id = nextId++, Name = "Bo", PhoneNumber = "12345678", UserName = "Bo", Password = "BoErSej", TrashCanId = 1},
         };
 
         public User Add(User User)

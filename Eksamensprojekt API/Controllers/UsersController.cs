@@ -15,7 +15,7 @@ namespace Eksamensprojekt_API.Controllers
         public UsersController()//(UserContext context)
         {
             //DB
-            // _manager = new DBRecordsManager(context);
+            // _manager = new DBUsersManager(context);
 
             // Non DB
             _manager = new UsersManager();

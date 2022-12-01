@@ -2,12 +2,12 @@
 {
     public class User
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
-        public int? ZipCode { get; set; }
-        public int? phoneNumber { get; set; }
+        public int ZipCode { get; set; }
+        public string phoneNumber { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
 
@@ -18,14 +18,14 @@
 
         }
 
-        public User(int? id, string name, string city, string address, int? zipCode, int phoneNumber, string userName, string password, int trashCanId)
+        public User(int id, string name, string city, string address, int zipCode, string phoneNumber, string userName, string password, int trashCanId)
         {
             Id = id;
             Name = name;
             City = city;
             Address = address;
             ZipCode = zipCode;
-            this.phoneNumber = phoneNumber;
+            PhoneNumber = phoneNumber;
             UserName = userName;
             Password = password;
             TrashCanId = trashCanId;
@@ -75,7 +75,7 @@
         {
             if (phoneNumber == null)
                 throw new ArgumentNullException();
-            if (phoneNumber <= 7)
+            if (phoneNumber.Length <= 7)
                 throw new ArgumentOutOfRangeException();
         }
 
