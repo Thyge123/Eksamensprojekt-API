@@ -30,7 +30,14 @@ namespace Eksamensprojekt_API.Model.Tests
         private User userPasswordnulltest = new User { Id = 1, Address = "Hello", City = "Hello", Name = "Hello", Password = null, phoneNumber = "12345678", TrashCanId = 1, UserName = "Hello", ZipCode = 1234 };
         private User userTrashIdnulltest = new User { Id = 1, Address = "Hello", City = "Hello", Name = "Hello", Password = "Hello", phoneNumber = "12345678", TrashCanId = null, UserName = "Hello", ZipCode = 1234 };
         private User userThrashIdrangetest = new User { Id = 1, Address = "Hello", City = "Hello", Name = "Hello", Password = "Hello", phoneNumber = "12345678", TrashCanId = -1, UserName = "Hello", ZipCode = 1234 };
+        private User EmptyConstructor = new User { };
 
+        [TestMethod()]
+        public void ValidateEmptyConstructor()
+        {
+            user.Validate();
+            Assert.IsNotNull(EmptyConstructor);
+        }
 
         [TestMethod()]
         public void ValidateIdTest()
