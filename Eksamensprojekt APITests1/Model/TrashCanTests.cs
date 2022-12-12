@@ -25,6 +25,14 @@ namespace Eksamensprojekt_API.Model.Tests
         private TrashCan estimaterangetoofewtest = new TrashCan { Id = 12, Address = "Hello", City = "Hello", Estimate = 0, lastEmptied = DateTime.Now, isFull = null, ZipCode = 2 };
         private TrashCan estimateragnetoomanytest = new TrashCan { Id = 13, Address = "Hello", City = "Hello", Estimate = 31, lastEmptied = DateTime.Now, isFull = null, ZipCode = 2 };
         private TrashCan lastemptiednulltest = new TrashCan { Id = 13, Address = "Hello", City = "Hello", Estimate = 31, lastEmptied = null, isFull = null, ZipCode = 2 };
+        private TrashCan EmptyConstructor = new TrashCan { };
+
+        [TestMethod()]
+        public void ValidateEmptyConstructor()
+        {
+            correctTrashCan.Validate();
+            Assert.IsNotNull(EmptyConstructor);
+        }
 
         [TestMethod()]
         public void ValidateIdTest()
