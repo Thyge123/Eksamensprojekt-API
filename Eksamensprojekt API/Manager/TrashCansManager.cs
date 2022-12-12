@@ -1,4 +1,5 @@
 ﻿using Eksamensprojekt_API.Model;
+using System.Linq;
 
 namespace Eksamensprojekt_API.Manager
 {
@@ -11,11 +12,36 @@ namespace Eksamensprojekt_API.Manager
             new TrashCan {Id = nextId++, City = "Roskilde", Address = "Roskildevej 1", ZipCode = 4000, isFull = true, Estimate = 0, lastEmptied = DateTime.Now},
         };
 
+        //public TrashCansManager()
+        //{
+        //    foreach (TrashCan trash in UDPReceiver.Data)
+        //    {
+        //        trash.Id = nextId++;
+        //        TrashCans.Add(trash);
+        //    }
+        //    UDPReceiver.Main();
+        //}
+
         public TrashCan Add(TrashCan TrashCan)
         {
+            if (TrashCan.lastEmptied == null)
+            {
+                TrashCan.lastEmptied = DateTime.Now;
+            }
             TrashCan.Id = nextId++;
             TrashCans.Add(TrashCan);
             return TrashCan;
+
+            //foreach(TrashCan trash in UDPReceiver.Data)
+            //{
+            //    trash.Id = nextId++;
+            //    TrashCans.Add(trash);
+            //}
+            //UDPReceiver.Data.Count();
+            //TrashCan.Id = nextId++;
+            //TrashCans.Add(TrashCan);
+            //TrashCans.Count();
+            //return TrashCan;
         }
 
         public TrashCan? Delete(int Id)
@@ -29,9 +55,6 @@ namespace Eksamensprojekt_API.Manager
         public IEnumerable<TrashCan> GetAll(string sortBy = null)
         {
             List<TrashCan> data = new List<TrashCan>(TrashCans);
-            // copy constructor
-            // Callers should no get a reference to the Data object, but rather get a copy
-
             //if (title != null)
             //{
             //    records = records.FindAll(book => book.Title.StartsWith(title));
@@ -67,7 +90,15 @@ namespace Eksamensprojekt_API.Manager
 
         public TrashCan? Update(int Id, TrashCan updates)
         {
-            throw new NotImplementedException();
+            TrashCan? oldTrashCan = GetById(Id);
+            if (oldTrashCan == null) return null;
+            oldTrashCan.City = updates.City;
+            oldTrashCan.Address = updates.Address;
+            oldTrashCan.ZipCode = updates.ZipCode;
+            oldTrashCan.isFull = updates.isFull;
+            oldTrashCan.Estimate = updates.Estimate;
+            oldTrashCan.lastEmptied = updates.lastEmptied;
+            return oldTrashCan;
         }
     }
 }

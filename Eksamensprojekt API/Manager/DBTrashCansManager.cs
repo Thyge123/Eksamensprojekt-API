@@ -16,11 +16,10 @@ namespace Eksamensprojekt_API.Manager
 
         public TrashCan Add(TrashCan TrashCan)
         {
-             TrashCan.Id = ++nextId;
+            TrashCan.Id = ++nextId;
             _trashCanContext.TrashCans.Add(TrashCan);
             _trashCanContext.SaveChanges();
             return TrashCan;
-
         }
 
         public TrashCan? Delete(int Id)
@@ -38,20 +37,25 @@ namespace Eksamensprojekt_API.Manager
         public IEnumerable<TrashCan> GetAll(string sortBy = null)
         {
             IEnumerable<TrashCan> TrashCans = from TrashCan in _trashCanContext.TrashCans
-                                    where (sortBy == null)
-                                    select TrashCan;
+                                              where (sortBy == null)
+                                              select TrashCan;
             return TrashCans;
         }
 
         public TrashCan? GetById(int Id)
         {
-              return _trashCanContext.TrashCans.FirstOrDefault(TrashCan => TrashCan.Id == Id);
+            return _trashCanContext.TrashCans.FirstOrDefault(TrashCan => TrashCan.Id == Id);
         }
 
         public TrashCan? Update(int Id, TrashCan updates)
         {
             TrashCan TrashCanToBeUpdated = GetById(Id);
-         
+            TrashCanToBeUpdated.City = updates.City;
+            TrashCanToBeUpdated.Address = updates.Address;
+            TrashCanToBeUpdated.ZipCode = updates.ZipCode;
+            TrashCanToBeUpdated.Estimate = updates.Estimate;
+            TrashCanToBeUpdated.isFull= updates.isFull;
+            TrashCanToBeUpdated.lastEmptied = updates.lastEmptied;
 
             _trashCanContext.SaveChanges();
 

@@ -1,11 +1,11 @@
-﻿using Eksamensprojekt_API.DBContext;
-using Eksamensprojekt_API.Manager;
+﻿using Eksamensprojekt_API.Manager;
 using Eksamensprojekt_API.Model;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Eksamensprojekt_API.Controllers
-{[Route("api/[controller]")]
+{
+    [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -108,7 +108,7 @@ namespace Eksamensprojekt_API.Controllers
         [HttpDelete("{id}")]
         public ActionResult<User> Delete(int id)
         {
-           User User = _manager.Delete(id);
+            User User = _manager.Delete(id);
 
             if (id != User.Id)
             {

@@ -1,3 +1,6 @@
+using Eksamensprojekt_API.DBContext;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,22 +14,25 @@ builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "AllowAll",
-            		          policy =>
+                              policy =>
                       {
-                        		  policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                          policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
                       });
 });
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<TrashCanContext>(opt => opt.UseSqlServer(Secrets.connectionString));
+
+
 // Configure the HTTP request pipeline.
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors("AllowAll");
 

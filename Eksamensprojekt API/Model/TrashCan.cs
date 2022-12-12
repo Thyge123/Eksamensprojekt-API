@@ -2,7 +2,7 @@
 {
     public class TrashCan
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
         public int? ZipCode { get; set; }
@@ -12,7 +12,6 @@
 
         public TrashCan()
         {
-            
         }
 
         public TrashCan(int id, string city, string address, int zipCode, bool isFull, int estimate, DateTime lastEmptied)
@@ -25,11 +24,10 @@
             Estimate = estimate;
             this.lastEmptied = lastEmptied;
         }
+
         public void ValidateId()
         {
             Console.WriteLine(1);
-            if (Id == null) throw new ArgumentNullException("Id can't be null or empty");
-            Console.WriteLine(2);
             if (Id <= 0) throw new ArgumentOutOfRangeException("User must have an Id");
             Console.WriteLine("Intgernal id " + Id);
         }
@@ -90,6 +88,7 @@
             ValidateEstimate();
             ValidateLastEmptied();
         }
+
         public override string ToString()
         {
             return $"{{{nameof(Id)}={Id.ToString()}, {nameof(City)}={City}, {nameof(Address)}={Address}, {nameof(ZipCode)}={ZipCode.ToString()}, {nameof(isFull)}={isFull.ToString()}, {nameof(Estimate)}={Estimate.ToString()}, {nameof(lastEmptied)}={lastEmptied.ToString()}}}";

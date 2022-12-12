@@ -58,6 +58,7 @@ namespace Eksamensprojekt_API.Manager
 
         public User? GetById(int Id)
         {
+            Console.WriteLine("hej");
             return Users.Find(trash => trash.Id == Id);
         }
 

@@ -6,16 +6,15 @@
         public string Name { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
-        public int ZipCode { get; set; }
-        public string phoneNumber { get; set; }
+        public int? ZipCode { get; set; }
+        public string PhoneNumber { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
 
-        public int? TrashCanId   { get; set; }
+        public int? TrashCanId { get; set; }
 
         public User()
         {
-
         }
 
         public User(int id, string name, string city, string address, int zipCode, string phoneNumber, string userName, string password, int trashCanId)
@@ -35,8 +34,6 @@
         {
             if (Id <= 0)
                 throw new ArgumentOutOfRangeException();
-            if (Id == null)
-                throw new ArgumentNullException("id");
         }
 
         public void ValidateName()
@@ -73,9 +70,9 @@
 
         public void ValidatePhoneNumber()
         {
-            if (phoneNumber == null)
+            if (PhoneNumber == null)
                 throw new ArgumentNullException();
-            if (phoneNumber.Length <= 7)
+            if (PhoneNumber.Length <= 7)
                 throw new ArgumentOutOfRangeException();
         }
 
@@ -114,7 +111,6 @@
             ValidateUserName();
             ValidatePassword();
             ValidateTrashId();
-
         }
     }
 }

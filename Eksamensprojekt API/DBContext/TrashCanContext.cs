@@ -5,7 +5,7 @@ namespace Eksamensprojekt_API.DBContext
 {
     public class TrashCanContext : DbContext
     {
-        public TrashCanContext(DbContextOptions<TrashCanContext> options) : base(options) { }
+        public TrashCanContext(DbContextOptions<TrashCanContext> options) : base(options)  { }
 
         public DbSet<TrashCan> TrashCans { get; set; }
     }

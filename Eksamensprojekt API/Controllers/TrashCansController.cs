@@ -10,23 +10,24 @@ namespace Eksamensprojekt_API.Controllers
     [ApiController]
     public class TrashCansController : ControllerBase
     {
-        private ITrashCansManager _manager;
-        //private TrashCansManager _manager = new TrashCansManager();
+       private ITrashCansManager _manager;
+       //private TrashCansManager _manager = new TrashCansManager();
 
-        public TrashCansController()//(TrashCanContext context)
+        public TrashCansController(TrashCanContext context)
         {
             //DB
-            // _manager = new DBTrashManager(context);
+             _manager = new DBTrashCansManager(context);
 
             // Non DB
-            _manager = new TrashCansManager();
+            //_manager = new TrashCansManager();
+           
         }
 
         [EnableCors("AllowAll")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpGet]
-        public ActionResult<IEnumerable<TrashCan>> Get([FromQuery] string? sort_by)
+         public ActionResult<IEnumerable<TrashCan>> Get([FromQuery] string? sort_by)
         {
             IEnumerable<TrashCan> list = _manager.GetAll(sort_by);
             if (list == null || list.Count() == 0)
@@ -109,7 +110,7 @@ namespace Eksamensprojekt_API.Controllers
         [HttpDelete("{id}")]
         public ActionResult<TrashCan> Delete(int id)
         {
-           TrashCan TrashCan = _manager.Delete(id);
+            TrashCan TrashCan = _manager.Delete(id);
 
             if (id != TrashCan.Id)
             {
@@ -117,5 +118,7 @@ namespace Eksamensprojekt_API.Controllers
             }
             return Ok(TrashCan);
         }
+
+       
     }
 }
