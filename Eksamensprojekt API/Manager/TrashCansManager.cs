@@ -12,16 +12,6 @@ namespace Eksamensprojekt_API.Manager
             new TrashCan {Id = nextId++, City = "Roskilde", Address = "Roskildevej 1", ZipCode = 4000, isFull = true, Estimate = 0, lastEmptied = DateTime.Now},
         };
 
-        //public TrashCansManager()
-        //{
-        //    foreach (TrashCan trash in UDPReceiver.Data)
-        //    {
-        //        trash.Id = nextId++;
-        //        TrashCans.Add(trash);
-        //    }
-        //    UDPReceiver.Main();
-        //}
-
         public TrashCan Add(TrashCan TrashCan)
         {
             if (TrashCan.lastEmptied == null)
@@ -31,17 +21,6 @@ namespace Eksamensprojekt_API.Manager
             TrashCan.Id = nextId++;
             TrashCans.Add(TrashCan);
             return TrashCan;
-
-            //foreach(TrashCan trash in UDPReceiver.Data)
-            //{
-            //    trash.Id = nextId++;
-            //    TrashCans.Add(trash);
-            //}
-            //UDPReceiver.Data.Count();
-            //TrashCan.Id = nextId++;
-            //TrashCans.Add(TrashCan);
-            //TrashCans.Count();
-            //return TrashCan;
         }
 
         public TrashCan? Delete(int Id)
@@ -55,10 +34,6 @@ namespace Eksamensprojekt_API.Manager
         public IEnumerable<TrashCan> GetAll(string sortBy = null)
         {
             List<TrashCan> data = new List<TrashCan>(TrashCans);
-            //if (title != null)
-            //{
-            //    records = records.FindAll(book => book.Title.StartsWith(title));
-            //}
             if (sortBy != null)
             {
                 switch (sortBy.ToLower())
